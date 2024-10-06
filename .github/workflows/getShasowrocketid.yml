@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
   schedule:
-    - cron: '0 4 * * *'  # Every day at 12:00 UTC
+    - cron: '0 16 * * *'  # Every day at 12:00 UTC
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
