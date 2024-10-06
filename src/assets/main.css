@@ -1,0 +1,11 @@
+@import './base.css';
+
+
+@font-face {
+    font-family: SmileySans;
+    src: url('src/assets/fonts/SmileySans/SmileySans-Oblique.woff2') format('woff2');
+}
+
+.custom-font-1 {
+    font-family: SmileySans, sans-serif;
+}
