@@ -84,7 +84,7 @@ export default {
             this.error = null;
             try {
                 const response = await fetch(
-                        "https://jsd.onmicrosoft.cn/gh/natro92/shadowrocketid@main/account.txt"
+                        "https://jsd.onmicrosoft.cn/gh/natro92/shadowrocketid@account/account.txt"
                 );
                 if (!response.ok) {
                     throw new Error("网络请求失败");
