@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  schedule:
+    - cron: '0 4 * * *'  # Every day at 12:00 UTC
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a set of commands using the runners shell
+      - name: 获取ID
+        run: |
+          echo "Fetching content..."
+          curl -o account.txt https://free.iosapp.icu/EasySpider_Linux_x64/Data/go-test2/1.txt
+          curl https://free.iosapp.icu/EasySpider_Linux_x64/Data/go-test2/2.txt >> account.txt
+          curl https://free.iosapp.icu/EasySpider_Linux_x64/Data/go-test2/3.txt >> account.txt
+          cat account.txt
+
+      # Commit and push the account.txt file back to the repository
+      - name: 提交 account.txt
+        run: |
+          git config --global user.name "Natro92"
+          git config --global user.email "2997453446@qq.com.com"
+          git add account.txt
+          git commit -m "Update account.txt with fetched content"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # This token is provided by GitHub Actions
