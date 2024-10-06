@@ -28,18 +28,18 @@ jobs:
       - name: 获取ID
         run: |
           echo "Fetching content..."
-          curl -o account.txt https://free.iosapp.icu/EasySpider_Linux_x64/Data/go-test2/1.txt
+          curl -o account.txt ${{ secrets.URL_1 }}/1.txt
           echo "" >> account.txt
-          curl https://free.iosapp.icu/EasySpider_Linux_x64/Data/go-test2/2.txt >> account.txt
+          curl ${{ secrets.URL_1 }}/2.txt >> account.txt
           echo "" >> account.txt 
-          curl https://free.iosapp.icu/EasySpider_Linux_x64/Data/go-test2/3.txt >> account.txt
+          curl ${{ secrets.URL_1 }}/3.txt >> account.txt
           cat account.txt
 
       # Commit and push the account.txt file back to the repository
       - name: 提交 account.txt
         run: |
-          git config --global user.name "Natro92"
-          git config --global user.email "2997453446@qq.com.com"
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
           git add account.txt
           git commit -m "Update account.txt with fetched content"
           git push
