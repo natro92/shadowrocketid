@@ -29,7 +29,9 @@ jobs:
         run: |
           echo "Fetching content..."
           curl -o account.txt https://free.iosapp.icu/EasySpider_Linux_x64/Data/go-test2/1.txt
+          echo "" >> account.txt
           curl https://free.iosapp.icu/EasySpider_Linux_x64/Data/go-test2/2.txt >> account.txt
+          echo "" >> account.txt 
           curl https://free.iosapp.icu/EasySpider_Linux_x64/Data/go-test2/3.txt >> account.txt
           cat account.txt
 
